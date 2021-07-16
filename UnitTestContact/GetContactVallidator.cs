@@ -7,22 +7,14 @@ using FluentAssertions;
 
 namespace UnitTestContact
 {
-    public class GetContactTestCase
+    public class GetContactValidatorTests
     {
      
 
-        private readonly IMediator _mediator;
-        private readonly ILogger _logger;
         GetContactValidator _validator;
         GetContactRequest _request;
-        //public GetContactTestCase(IMediator mediator,ILogger logger)
-        //{
-        //    _mediator = mediator;
-        //    _logger = logger;
-        //    _validator = new GetContactValidator();
-        //    _request = new GetContactRequest();
-        //}
-        public GetContactTestCase()
+        
+        public GetContactValidatorTests()
         {
             _validator = new GetContactValidator();
             _request = new GetContactRequest();
@@ -38,6 +30,6 @@ namespace UnitTestContact
             _request.contactId = contactId;
             _validator.Validate(_request).IsValid.Should().Be(isValid);
         }
-        
+       
     }
 }
